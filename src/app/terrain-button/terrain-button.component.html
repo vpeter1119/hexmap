@@ -1,0 +1,4 @@
+<button mat-fab class="terrain-btn" [style.background-color]="terrain.color">
+    <i *ngIf="!useImage" class="{{terrainIcon}} fa-2xl" style="margin: auto;"></i>
+    <img *ngIf="useImage" src="assets/images/mapicons/{{terrainImage}}" style="height: 40px; width: 40px;" />
+</button>

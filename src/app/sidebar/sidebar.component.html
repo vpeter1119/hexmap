@@ -1,0 +1,29 @@
+<div class="sidebar-container">
+    <div *ngIf="mode == 'select'">
+        <h3>Hex Editor</h3>
+        <div *ngIf="!selectedHex">
+            <p>No hex selected.</p>
+        </div>
+        <div *ngIf="selectedHex">
+            <p>Coordinates: {{selectedHex.coords[0]}} , {{selectedHex.coords[1]}}</p>
+            <p>Type: {{selectedHex.properties.type}}</p>
+            <mat-form-field appearance="fill">
+                <mat-label>Terrain</mat-label>
+                <mat-select [(value)]="selectedHex.properties.terrain">
+                    <mat-option *ngFor="let terrain of terrainTypes" [value]="terrain.value">
+                    {{terrain.display}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button (click)="onSubmit()">Save</button>
+        </div>
+    </div>
+    <div *ngIf="mode == 'paint'">
+        <h3>Paint Painter</h3>
+        <p>Select a terrain type.</p>
+        <div fxLayout="row wrap" fxLayoutGap="10px">
+            <app-terrain-button *ngFor="let t of terrainTypes" [terrain]="t" (click)="selectTerrainType(t)"></app-terrain-button>
+        </div>
+    </div>
+</div>

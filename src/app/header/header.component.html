@@ -1,0 +1,8 @@
+<div class="header-container">
+    <mat-toolbar color="primary">
+        <button mat-button (click)="onSaveToLocal()"><mat-icon>save</mat-icon> Save To Local Storage</button>
+        <button mat-button (click)="onClearLocal()"><mat-icon>delete</mat-icon> Clear Local Storage</button>
+        <button mat-button *ngIf="mode == 'select'" (click)="selectMode('paint')"><mat-icon>brush</mat-icon> Paint Mode</button>
+        <button mat-button *ngIf="mode == 'paint'" (click)="selectMode('select')"><mat-icon>near_me</mat-icon> Select Mode</button>
+    </mat-toolbar>
+</div>
